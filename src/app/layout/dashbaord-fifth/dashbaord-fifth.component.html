@@ -11,13 +11,24 @@
                 <app-categories-list />
             </div>
             <!-- Second card -->
-            <div class="card mb-1" style="height: 18.8rem;">
+            <div class="card mb-1" style="height: 17.2rem;">
                 <div class="Mainheading">
                     <h6>cyber development status</h6>
                 </div>
                 <app-common-table-structure [tableData]="tableDataOfCyberDevelopementStatus"
                     [tableColumns]="tableColumnsOfCyberDevelopementStatus" [noOfRows]="9"></app-common-table-structure>
             </div>
+
+            <div class="card mb-1">
+                <app-common-table-structure [tableData]="tableDataOfSuggestions"
+                    [tableColumns]="tableColumnsOfSuggestions" [noOfRows]="3"></app-common-table-structure>
+            </div>
+            <!-- Seventh card -->
+            <div class="card" style="height: 6rem;">
+                <app-common-table-structure [tableData]="tableDataOfDetects" [tableColumns]="tableColumnsOfDetects"
+                    [noOfRows]="2"></app-common-table-structure>
+            </div>
+          
         </div>
 
         <!-- Middle column -->
@@ -30,12 +41,20 @@
                 <app-cyber-chart></app-cyber-chart>
             </div>
             <!-- Fourth card -->
-            <div class="card mb-1" style="height:11.8rem;">
+            <div class="card mb-1" style="height:13rem;">
                 <div class="Mainheading">
                     <h6>lost/abandoned opportunities</h6>
                 </div>
                 <app-common-table-structure [tableData]="tableDataOfAbandoned" [tableColumns]="tableColumnsOfAbandoned"
-                    [noOfRows]="5"></app-common-table-structure>
+                    [noOfRows]="6"></app-common-table-structure>
+            </div>
+
+            <div class="card" style="height: 14rem;">
+                <div class="Mainheading">
+                    <h6>available cyber on plan</h6>
+                </div>
+                <app-common-table-structure [tableData]="tableDataOfCyberOnPlan"
+                    [tableColumns]="tableColumnsOfCyberOnPlan" [noOfRows]="7"></app-common-table-structure>
             </div>
         </div>
 
@@ -46,7 +65,7 @@
                 <div class="Mainheading">
                     <h6>OT CYBERSECURITY MATURITY JOURNEY</h6>
                 </div>
-                <div class="postion-relative">
+                <div class="postion-relative" style="height: 23rem;">
                     <div class="blockLine">
 
                         <button class="btnStyle" (click)="handleResize()">
@@ -54,8 +73,36 @@
                             Full screen
                         </button>
                     </div>
-                    <img src="../../../assets/drawing_15apr.svg" alt="not" style="width: 100%;" />
+                    <img src="../../../assets/try.svg" alt="not" style="width: 100%;" />
                 </div>
+
+                <div class="lastRow container-fluid ">
+                    <div class="row">
+                        <div class="col-md-4 py-1" *ngFor="let indicator of indicators">
+                            <div class="blockin" [ngClass]="indicator.class">
+                                <div class="indicatorName">
+                                    <h6>{{ indicator.name }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="height: 15rem;">
+                <div class="Mainheading">
+                    <h6>site adjustment</h6>
+                </div>
+                <div class="tableLayout">
+                    <div *ngFor="let item of tableDataOfSiteAdustment" class="w-100">
+                        <div class="MainheadingTable">
+                            <h6>{{item.maturityLevel}}</h6>
+                        </div>
+                        <app-common-table-structure [tableData]="item.tblCapSiteSecurityMaturityMasterSubs"
+                            [tableColumns]="tableColumnsOfSiteAdustment" [noOfRows]="7"></app-common-table-structure>
+                    </div>
+                </div>
+                <!-- <app-site-cybertable /> -->
             </div>
 
 
@@ -97,51 +144,5 @@
         </div>
     </div>
 
-    <div class="row px-1">
-        <!-- Left column -->
-        <div class="col-md-2">
-            <!-- Sixth card -->
-            <div class="card mb-1">
-                <app-common-table-structure [tableData]="tableDataOfSuggestions"
-                    [tableColumns]="tableColumnsOfSuggestions" [noOfRows]="3"></app-common-table-structure>
-            </div>
-            <!-- Seventh card -->
-            <div class="card" style="height: 6rem;">
-                <app-common-table-structure [tableData]="tableDataOfDetects" [tableColumns]="tableColumnsOfDetects"
-                    [noOfRows]="2"></app-common-table-structure>
-            </div>
-        </div>
 
-        <!-- Middle column -->
-        <div class="col-md-3">
-            <!-- Eighth card -->
-            <div class="card" style="height: 13.1rem;">
-                <div class="Mainheading">
-                    <h6>available cyber on plan</h6>
-                </div>
-                <app-common-table-structure [tableData]="tableDataOfCyberOnPlan"
-                    [tableColumns]="tableColumnsOfCyberOnPlan" [noOfRows]="6"></app-common-table-structure>
-            </div>
-        </div>
-
-        <!-- Right column -->
-        <div class="col-md-7">
-            <!-- Ninth card -->
-            <div class="card" style="height: 13.1rem;">
-                <div class="Mainheading">
-                    <h6>site adjustment</h6>
-                </div>
-                <div class="tableLayout">
-                    <div *ngFor="let item of tableDataOfSiteAdustment" class="w-100">
-                        <div class="MainheadingTable">
-                            <h6>{{item.maturityLevel}}</h6>
-                        </div>
-                        <app-common-table-structure [tableData]="item.tblCapSiteSecurityMaturityMasterSubs"
-                            [tableColumns]="tableColumnsOfSiteAdustment" [noOfRows]="6"></app-common-table-structure>
-                    </div>
-                </div>
-                <!-- <app-site-cybertable /> -->
-            </div>
-        </div>
-    </div>
 </div>

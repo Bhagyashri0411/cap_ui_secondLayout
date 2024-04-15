@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { MessageService } from 'primeng/api';
+import { CAPService } from 'src/app/Service/cap-service';
 
 @Component({
   selector: 'app-dashbaord-fifth',
@@ -8,6 +11,12 @@ import { Component } from '@angular/core';
 export class DashbaordFifthComponent {
 
 
+  constructor(private service: CAPService,
+    private spinner: NgxSpinnerService,
+    private messageService: MessageService,
+  ) {
+    this.getSiteCyberSecurityData();
+  }
   isExpand: boolean = false;
 
   tableDataOfCyberDevelopementStatus: any[] = [
@@ -95,7 +104,7 @@ export class DashbaordFifthComponent {
 
   // end
 
-  // Site adjustment
+
   tableDataOfCyberOnPlan: any[] = [
     { id: 1, oppNumber: 'O-215225', opportunityName: "3rd Party", "closeDate": "2024-08-06", "type": "text-center" },
     { id: 2, oppNumber: 'O-166521', opportunityName: "Consulting Services - Assessment", "closeDate": "2024-08-06", "type": "text-center" },
@@ -125,678 +134,39 @@ export class DashbaordFifthComponent {
   ];
 
   // Emd
-
-  tableDataOfSiteAdustment: any[] = [{
-    "createdBy": "CAP",
-    "createdOn": "2024-04-11T10:55:00",
-    "deleteStatus": false,
-    "maturityLevel": "Fundamental",
-    "maturitymasterId": 1,
-    "modifiedBy": "CAP",
-    "modifiedOn": "2024-04-11T10:55:00",
-    "tblCapSiteSecurityMaturityMasterSubs": [{
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "OT/IT Segmentation",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 1,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "1",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    },
-    {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "CSVA Assessment",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 2,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(ID)",
-      "pursuitType": "NIST",
-      "serialNo": "2",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    },
-    {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Procedure & Policy",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 3,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(ID)",
-      "pursuitType": "NIST",
-      "serialNo": "3",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Governance/Regulation Compliance",
-      "maturitySecurityStatusColor": "yellow",
-      "maturitySecurityStatusName": "Pursuing",
-      "maturitymasterSubId": 4,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(DE)",
-      "pursuitType": "NIST",
-      "serialNo": "4",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    },
-    {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Awareness & Trainingn",
-      "maturitySecurityStatusColor": "red",
-      "maturitySecurityStatusName": "Not deployed",
-      "maturitymasterSubId": 5,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(ID)",
-      "pursuitType": "NIST",
-      "serialNo": "5",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Assess Discovery & Inventory",
-      "maturitySecurityStatusColor": "yellow",
-      "maturitySecurityStatusName": "Pursuing",
-      "maturitymasterSubId": 6,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(ID)",
-      "pursuitType": "NIST",
-      "serialNo": "6",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    },
-    {
-        "createdBy": null,
-        "createdOn": "0001-01-01T00:00:00",
-        "deleteStatus": null,
-        "maturitySecurityLabel": "Auto. ValMaturitymasterSubIdated Local backup",
-        "maturitySecurityStatusColor": "yellow",
-        "maturitySecurityStatusName": "Pursuing",
-        "maturitymasterSubId": 7,
-        "modifiedBy": null,
-        "modifiedOn": "0001-01-01T00:00:00",
-        "pursuitLabel": "(RC)",
-        "pursuitType": "NIST",
-        "serialNo": "7",
-        "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Antivirus & Patching",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 8,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "8",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Secure Remote Access",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 9,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "9",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "OT/IT Segmentation",
-      "maturitySecurityStatusColor": "red",
-      "maturitySecurityStatusName": "Not deployed",
-      "maturitymasterSubId": 10,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(OC 5.x/TC8.x)",
-      "pursuitType": "ISO27001",
-      "serialNo": "1",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "CSVA Assessment",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 11,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.8)",
-      "pursuitType": "ISO27001",
-      "serialNo": "2",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Procedure & Policy",
-      "maturitySecurityStatusColor": "red",
-      "maturitySecurityStatusName": "Not deployed",
-      "maturitymasterSubId": 12,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(OC5.36)",
-      "pursuitType": "ISO27001",
-      "serialNo": "3",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Governance/Regulation Compliance",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 13,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(OC5.5)",
-      "pursuitType": "ISO27001",
-      "serialNo": "4",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Awareness & Trainingn",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 14,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PE6.3/TC8.7)",
-      "pursuitType": "ISO27001",
-      "serialNo": "5",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Assess Discovery & Inventory",
-      "maturitySecurityStatusColor": "red",
-      "maturitySecurityStatusName": "Not deployed",
-      "maturitymasterSubId": 15,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.7)",
-      "pursuitType": "ISO27001",
-      "serialNo": "6",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Auto. ValMaturitymasterSubIdated Local backup",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 16,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.7)",
-      "pursuitType": "ISO27001",
-      "serialNo": "7",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Antivirus & Patching",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 17,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.7)",
-      "pursuitType": "ISO27001",
-      "serialNo": "8",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Secure Remote Access",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 18,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.7)",
-      "pursuitType": "ISO27001",
-      "serialNo": "9",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 1
-    }
-    ]
-  },
-  {
-    "createdBy": "CAP",
-    "createdOn": "2024-04-10T17:08:00",
-    "deleteStatus": false,
-    "maturityLevel": "Recommanded",
-    "maturitymasterId": 2,
-    "modifiedBy": "CAP",
-    "modifiedOn": "2024-04-10T17:08:00",
-    "tblCapSiteSecurityMaturityMasterSubs": [{
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "AD Domain",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 19,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.7)",
-      "pursuitType": "ISO27001",
-      "serialNo": "10",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "OT SIEM",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 20,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.15)",
-      "pursuitType": "ISO27001",
-      "serialNo": "11",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "PCN Hardening",
-      "maturitySecurityStatusColor": "red",
-      "maturitySecurityStatusName": "Not deployed",
-      "maturitymasterSubId": 21,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(OC5.x/TC8.x)",
-      "pursuitType": "ISO27001",
-      "serialNo": "12",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Application Control",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 22,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.7)",
-      "pursuitType": "ISO27001",
-      "serialNo": "13",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Compliant Checking(PR)",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 23,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(OC 5.x)",
-      "pursuitType": "ISO27001",
-      "serialNo": "14",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Risk Monitoring(DR)",
-      "maturitySecurityStatusColor": "red",
-      "maturitySecurityStatusName": "Not deployed",
-      "maturitymasterSubId": 24,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(OC5.x/TC8.x)",
-      "pursuitType": "ISO27001",
-      "serialNo": "15",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "L3.5 DMZ Layer(PR)",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 25,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.X/OC5.X)",
-      "pursuitType": "ISO27001",
-      "serialNo": "16",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Proactive 24/7 Threat Monitoring(RS)",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 26,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.15)",
-      "pursuitType": "ISO27001",
-      "serialNo": "17",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "USB Media Protection(PR)",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 27,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(OC5.x/PH7.x)",
-      "pursuitType": "ISO27001",
-      "serialNo": "18",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Vulrability Scanning(DE)",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 28,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.8/OC5.36/PE6.8)",
-      "pursuitType": "ISO27001",
-      "serialNo": "19",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "AD Domain",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 29,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "10",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "OT SIEM",
-      "maturitySecurityStatusColor": "yellow",
-      "maturitySecurityStatusName": "Pursuing",
-      "maturitymasterSubId": 30,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(ID)",
-      "pursuitType": "NIST",
-      "serialNo": "11",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "PCN Hardening",
-      "maturitySecurityStatusColor": "yellow",
-      "maturitySecurityStatusName": "Pursuing",
-      "maturitymasterSubId": 31,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "12",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Application Control",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 32,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "13",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Compliant Checking",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 33,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "14",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Risk Monitoring",
-      "maturitySecurityStatusColor": "red",
-      "maturitySecurityStatusName": "Not deployed",
-      "maturitymasterSubId": 34,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(DR)",
-      "pursuitType": "NIST",
-      "serialNo": "15",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "L3.5 DMZ Layer",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 35,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "16",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Proactive 24/7 Threat Monitoring",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 36,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(RS)",
-      "pursuitType": "NIST",
-      "serialNo": "17",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "USB Media Protection",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 37,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "18",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Vulrability Scanning(DE)",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 38,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(DE)",
-      "pursuitType": "NIST",
-      "serialNo": "19",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 2
-    }
-    ]
-  }, {
-    "createdBy": "CAP",
-    "createdOn": "2024-04-10T16:56:00",
-    "deleteStatus": false,
-    "maturityLevel": "Advanced",
-    "maturitymasterId": 3,
-    "modifiedBy": "CAP",
-    "modifiedOn": "2024-04-10T16:56:00",
-    "tblCapSiteSecurityMaturityMasterSubs": [{
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "IR Table Exercise(RC,RS)",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 39,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(OC5.26)",
-      "pursuitType": "ISO27001",
-      "serialNo": "20",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 3
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "OT SOC",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 40,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.15)",
-      "pursuitType": "ISO27001",
-      "serialNo": "21",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 3
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "OT PenTest(ID)",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 42,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(TC8.15)",
-      "pursuitType": "ISO27001",
-      "serialNo": "23",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 3
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "IR Table Exercise",
-      "maturitySecurityStatusColor": "yellow",
-      "maturitySecurityStatusName": "Pursuing",
-      "maturitymasterSubId": 43,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(RC,RS)",
-      "pursuitType": "NIST",
-      "serialNo": "20",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 3
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "OT SOC",
-      "maturitySecurityStatusColor": "gray",
-      "maturitySecurityStatusName": "Default Status",
-      "maturitymasterSubId": 44,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(RC,RS)",
-      "pursuitType": "NIST",
-      "serialNo": "21",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 3
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "Offensive/Defensive Cybersecurity Skills",
-      "maturitySecurityStatusColor": "red",
-      "maturitySecurityStatusName": "Not deployed",
-      "maturitymasterSubId": 45,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(PR)",
-      "pursuitType": "NIST",
-      "serialNo": "22",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 3
-    }, {
-      "createdBy": null,
-      "createdOn": "0001-01-01T00:00:00",
-      "deleteStatus": null,
-      "maturitySecurityLabel": "OT PenTest",
-      "maturitySecurityStatusColor": "green",
-      "maturitySecurityStatusName": "Deployed",
-      "maturitymasterSubId": 46,
-      "modifiedBy": null,
-      "modifiedOn": "0001-01-01T00:00:00",
-      "pursuitLabel": "(ID)",
-      "pursuitType": "NIST",
-      "serialNo": "23",
-      "tblCapSiteSecurityMaturityMastermaturitymasterId": 3
-    }
-    ]
+  // Site adjustment
+  getSiteCyberSecurityData() {
+    this.spinner.show()
+    this.service.GetMaturitySatusMasterURL().subscribe(
+      (response: any) => {
+        this.spinner.hide();
+        this.tableDataOfSiteAdustment = response;
+      },
+      (err =>
+        this.spinner.hide()
+      )
+    );
   }
-  ]
+  tableDataOfSiteAdustment: any[] 
     ;
   tableColumnsOfSiteAdustment: any[] = [
     { header: '', field: 'maturitySecurityLabel' },
     { header: '', field: 'maturitySecurityStatusName' },
+  ];
+
+  // NIST CSF
+  tableDataOfCategories: any[] = [
+    { id: 1, categories: 'Govern (GV)', score: 1.7, "type": "bg-yellow" },
+    { id: 2, categories: 'Identity (ID)', score: 0.6, "type": "bg-blue" },
+    { id: 3, categories: 'Protect (PR)', score: 1.3, "type": "bg-purple" },
+    { id: 4, categories: 'Detect (DE)', score: 0.0, "type": "bg-orange" },
+    { id: 5, categories: 'Respond (RS)', score: 1.7, "type": "bg-red" },
+    { id: 6, categories: 'Recover (RC)', score: 2.7, "type": "bg-green" },
+
+  ];
+  tableColumnsOfCategories: any[] = [
+    { header: 'NIST CSF 2.0 CATEGORIES', field: 'categories', className: 'type' },
+    { header: 'SCORE', field: 'score' },
   ];
 
 
@@ -810,9 +180,57 @@ export class DashbaordFifthComponent {
     return securityList.slice(midpoint);
   }
 
-  constructor() { }
-
   handleResize() {
     this.isExpand = !this.isExpand
   }
+
+
+
+  handleEdit(list: any) {
+    list.edit = true;
+  }
+
+  handleCancelEdit(list: any) {
+    list.edit = false;
+  }
+
+  handleColorChange(item: any, val: any) {
+    item.maturitySecurityStatusName = val.target.value;
+    switch (val.target.value) {
+      case "Deployed":
+        item.maturitySecurityStatusColor = "green";
+        break;
+      case "Not deployed":
+        item.maturitySecurityStatusColor = "red";
+        break;
+      case "Default Status":
+        item.maturitySecurityStatusColor = "gray";
+        break;
+      case "Pursuing":
+        item.maturitySecurityStatusColor = "yellow";
+        break;
+      default:
+        break;
+    };
+  }
+
+  handleSave(data: any, list: any) {
+    this.spinner.show();
+
+    this.service.SaveMaturitySatusMasterURL(data).subscribe(() => {
+      this.spinner.hide()
+      this.messageService.add({  severity: 'success', summary: 'Done!', detail: `${list.maturitySecurityStatusName} updated Successfully`,life: 5000 });
+      this.service.sendUpdateDataOfCyberSecurity('done');
+      list.edit = false;
+
+    },
+    );
+  }
+
+  indicators = [
+    { class: 'green', name: 'Current Site Status' },
+    { class: 'yellow', name: 'PoC/Ongoing Pursuit' },
+    { class: 'red', name: 'Gap/Path Forward' }
+  ];
+
 }
