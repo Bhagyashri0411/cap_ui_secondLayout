@@ -1,0 +1,101 @@
+header {
+  // background: linear-gradient(90deg, rgba(59, 150, 179, 1) 0%, rgba(61, 108, 126, 1) 100%);
+  background-color: #404040;
+  padding: 0.2rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    span {
+      font-size: 0.7rem;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      text-wrap: nowrap;
+      /* Text color */
+    }
+
+    // &:hover {
+    //   background: rgb(59, 150, 179, 0.8);
+    // }
+
+    .selectFeild {
+      width: 100%;
+      border: 1px solid #d9d9d9;
+      background-color: #dcddde;
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      padding: 0.1rem;
+    }
+  }
+
+  .listshow {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+  }
+}
+
+.p-inputgroup {
+  width: 100%;
+  position: relative;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite
+}
+
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #000;
+  animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+  }
+}

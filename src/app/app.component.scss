@@ -1,0 +1,27 @@
+.left-menu-outer {
+    background-color: #fff;
+    height: calc(100vh - 45px);
+}
+
+.for-transition {
+    transition: all 0.5s;
+}
+
+.left-menu-col {
+    padding-left: 12px;
+}
+
+.router-outlet-col {
+    padding-left: 0px;
+    overflow-x: auto;
+}
+
+.router-outlet-wrapper {
+    // padding-top: 10px;
+    position: relative;
+    .backdrop {
+        margin-top: 10px;
+        border-radius: 12px;
+    }
+}
+

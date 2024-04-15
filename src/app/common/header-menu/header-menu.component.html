@@ -1,0 +1,128 @@
+<header>
+  <div class="container-fluid">
+    <div class="mainheader">
+      <div class="menu">
+        <div class="listshow w-75">
+          <div class="info">
+            <span>Pole</span>
+            <div class="data-table-outer">
+              <div class="search-container" [ngClass]="{ 'open': showDropdown.Pole }">
+                <div class="p-inputgroup">
+                  <input pInputText type="text" class="p-inputtext" placeholder="Select Pole"
+                    [value]="selectedOptionPole" (click)="toggleDropdown('Pole')"
+                    (input)="filterList($event, 'Pole')" />
+                  <span class="p-inputgroup-addon addon-icon">
+                    <span class="pi pi-search addon-search"></span>
+                  </span>
+                  <ul class="dropdown-list">
+                    <li *ngFor="let item of PoledropValues" (click)="selectItem(item, 'Pole')">
+                      {{ item }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Region -->
+          <div class="info">
+            <span>Region</span>
+            <div class="data-table-outer">
+              <div class="search-container" [ngClass]="{ 'open': showDropdown.Region }">
+                <div class="p-inputgroup">
+                  <input pInputText type="text" class="p-inputtext" placeholder="Select Region"
+                    [value]="selectedOptionRegion" (click)="toggleDropdown('Region')"
+                    (input)="filterList($event, 'Region')" />
+                  <span class="p-inputgroup-addon addon-icon">
+                    <span class="pi pi-search addon-search"></span>
+                  </span>
+                  <ul class="dropdown-list">
+                    <ng-container *ngIf="!RegiondropValues || RegiondropValues.length === 0">
+                      <li>Select Pole</li>
+                    </ng-container>
+                    <ng-container >
+                      <li *ngFor="let item of RegiondropValues" (click)="selectItem(item, 'Region')">
+                        {{ item }}
+                      </li>
+                    </ng-container>
+                    <!-- <ng-template #showLoading>
+                      <div class="dropdown-listsecond">
+                        <span class="loader"></span>
+                      </div>
+                    </ng-template> -->
+                  </ul>
+                  
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country -->
+          <div class="info">
+            <span>Country</span>
+            <div class="data-table-outer">
+              <div class="search-container" [ngClass]="{ 'open': showDropdown.Country }">
+                <div class="p-inputgroup">
+                  <input pInputText type="text" class="p-inputtext" placeholder="Select Country"
+                    [value]="selectedOptionCountry" (click)="toggleDropdown('Country')"
+                    (input)="filterList($event, 'Country')" />
+                  <span class="p-inputgroup-addon addon-icon">
+                    <span class="pi pi-search addon-search"></span>
+                  </span>
+                  <ul class="dropdown-list">
+                    <ng-container *ngIf="!CountrydropValues || CountrydropValues.length === 0; else haveDataOfCountry">
+                      <li>Select Regoin</li>
+                    </ng-container>
+                    <ng-template #haveDataOfCountry>
+                      <li *ngFor="let item of CountrydropValues" (click)="selectItem(item, 'Country')">
+                        {{ item }}
+                      </li>
+                    </ng-template>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account Site -->
+          <div class="info">
+            <span>Account Site</span>
+            <div class="data-table-outer">
+              <div class="search-container" [ngClass]="{ 'open': showDropdown.accountSite }">
+                <div class="p-inputgroup">
+                  <input pInputText type="text" class="p-inputtext" placeholder="Select Account site"
+                    [value]="selectedOptionaccountSite" (click)="toggleDropdown('accountSite')"
+                    (input)="filterList($event, 'accountSite')" />
+                  <span class="p-inputgroup-addon addon-icon">
+                    <span class="pi pi-search addon-search"></span>
+                  </span>
+                  <ul class="dropdown-list">
+                    <ng-container
+                      *ngIf="!accountSitedropValues || accountSitedropValues.length === 0; else haveDataOfaccountSite">
+                      <li>Select Regoin</li>
+                    </ng-container>
+                    <ng-template #haveDataOfaccountSite>
+                      <li *ngFor="let item of accountSitedropValues" (click)="selectItem(item, 'accountSite')">
+                        {{ item }}
+                      </li>
+                    </ng-template>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="listshow gap-2">
+          <button class="buttonfeild" (click)="handleShowPage()">
+            <span class="pi pi-sign-in"></span>
+            Submit
+          </button>
+          <button class="buttonfeild">
+            <span class="pi pi-replay"></span>
+            reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

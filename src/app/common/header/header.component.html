@@ -1,0 +1,56 @@
+<div class="layout-topbar">
+
+    <div style="display: flex; width: 100%;">
+        <div class="layout-topbar-logo">
+            <img src="assets/img/Honeywell_Logo_RGB_Red.png" alt="logo">
+            <div class="heading_line">
+                <span class="heading_top" >Cyber Account Planning</span>
+            </div>
+        </div>
+
+
+        <div #topbarmenu class="layout-topbar-menu"
+            [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+
+            <div class="me-2">
+                <select class="Selectfeild" (change)="navigatePage($event)">
+                    <option value="page1">Option 1</option>
+                    <option value="page2">Option 2</option>
+                    <option value="page3">Option 3</option>
+                    <option value="page4">Option 4</option>
+
+                </select>
+
+            </div>
+            <div class="rightsiteicon">
+
+                <span>Version: </span>
+            </div>
+
+            <button class="p-link layout-topbar-button" pTooltip="Information">
+                <i class="pi pi-info-circle"></i>
+                <span>Defect</span>
+            </button>
+
+            <button class="p-link layout-topbar-button" (click)="op1.toggle($event)">
+                <i class="pi pi-user"></i>
+            </button>
+
+        </div>
+        <p-overlayPanel #op1 [style]="{'width': '250px'}">
+            <div class="flex align-items-center justify-content-center">
+                <div class="avatar" style="text-align: center;">
+                    <i class="pi pi-user"
+                        style="color: #708090;margin-top: 11px;color: #708090;font-size: 3rem;margin-left: 0.35em;">
+                    </i>
+                </div>
+            </div>
+            <div class="username" style="text-align: center;">{{this.apiService.userDetails?.employee?.nameFirst}}</div>
+            <div style="text-align: center;">
+                {{this.apiService.userDetails?.employee?.businessTitle}}
+            </div>
+            <div style="text-align: center;margin-top: 20px;">
+                <p-button label="Logout" icon="pi pi-sign-out" (click)="logOut()"></p-button>
+            </div>
+        </p-overlayPanel>
+    </div>

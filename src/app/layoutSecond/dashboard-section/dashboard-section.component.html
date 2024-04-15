@@ -1,0 +1,147 @@
+<app-header-menu />
+<div class="container-fluid mt-1">
+    <div class="row px-1">
+        <!-- Left column -->
+        <div class="col-md-2">
+            <!-- Second card -->
+            <div class="card mb-1">
+                <div class="Mainheading">
+                    <h6>cyber development status</h6>
+                </div>
+                <app-common-table-with-scroll [tableData]="tableDataOfCyberDevelopementStatus"
+                    [tableColumns]="tableColumnsOfCyberDevelopementStatus"
+                    [scrollHeight]="250"></app-common-table-with-scroll>
+            </div>
+
+
+            <!-- Sixth card -->
+            <div class="card mb-1">
+                <app-common-table-with-scroll [tableData]="tableDataOfSuggestions"
+                    [tableColumns]="tableColumnsOfSuggestions" [scrollHeight]="100"></app-common-table-with-scroll>
+            </div>
+            <!-- Seventh card -->
+            <div class="card mb-1">
+                <app-common-table-with-scroll [tableData]="tableDataOfDetects" [tableColumns]="tableColumnsOfDetects"
+                    [scrollHeight]="100"></app-common-table-with-scroll>
+            </div>
+
+            <div class="card">
+                <app-common-table-with-scroll [tableData]="tableDataOfCategories"
+                    [tableColumns]="tableColumnsOfCategories" [scrollHeight]=""></app-common-table-with-scroll>
+            </div>
+        </div>
+
+        <!-- Middle column -->
+        <div class="col-md-3">
+            <!-- Fourth card -->
+            <div class="card mb-1">
+                <div class="Mainheading">
+                    <h6>lost/abandoned opportunities</h6>
+                </div>
+                <app-common-table-with-scroll [tableData]="tableDataOfAbandoned"
+                    [tableColumns]="tableColumnsOfAbandoned" [scrollHeight]="190"></app-common-table-with-scroll>
+            </div>
+            <div class="card mb-1">
+                <div class="Mainheading">
+                    <h6>available cyber on plan</h6>
+                </div>
+                <app-common-table-with-scroll [tableData]="tableDataOfCyberOnPlan"
+                    [tableColumns]="tableColumnsOfCyberOnPlan" [scrollHeight]="180"></app-common-table-with-scroll>
+            </div>
+            <!-- Third card -->
+            <div class="card">
+                <div class="Mainheading">
+                    <h6>nist csf 2.0 mapping</h6>
+                </div>
+                <app-cyber-chart></app-cyber-chart>
+            </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="col-md-7 h-100">
+            <!-- Fifth card -->
+            <div class="card mb-1">
+                <div class="Mainheading">
+                    <h6>OT CYBERSECURITY MATURITY JOURNEY</h6>
+                </div>
+                <div class="postion-relative" style="height: 23rem;">
+                    <div class="blockLine">
+
+                        <button class="btnStyle" (click)="handleResize()">
+                            <span class="pi pi-window-maximize"></span>
+                            Full screen
+                        </button>
+                    </div>
+                    <img src="../../../assets/try.svg" alt="not" style="width: 100%;" />
+                </div>
+
+                <div class="lastRow container-fluid ">
+                    <div class="row">
+                        <div class="col-md-4 py-1" *ngFor="let indicator of indicators">
+                            <div class="blockin" [ngClass]="indicator.class">
+                                <div class="indicatorName">
+                                    <h6>{{ indicator.name }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="Mainheading">
+                    <h6>site adjustment</h6>
+                </div>
+                <div class="tableLayout">
+                    <div *ngFor="let item of tableDataOfSiteAdustment" class="w-100">
+                        <div class="MainheadingTable">
+                            <h6>{{item.maturityLevel}}</h6>
+                        </div>
+                        <app-common-table-with-scroll [tableData]="item.tblCapSiteSecurityMaturityMasterSubs"
+                            [tableColumns]="tableColumnsOfSiteAdustment"
+                            [scrollHeight]="175"></app-common-table-with-scroll>
+                    </div>
+                </div>
+                <!-- <app-site-cybertable /> -->
+            </div>
+
+            <div class="modalBox" *ngIf="isExpand">
+                <div class="card">
+                    <div class="Mainheading">
+                        <h6>OT CYBERSECURITY MATURITY JOURNEY</h6>
+                    </div>
+                    <div class="postion-relative">
+                        <div class="blockLine">
+
+                            <button class="btnStyle" (click)="handleResize()">
+                                <span class="pi pi-window-maximize"></span>
+                                Small screen
+                            </button>
+
+                            <div class="blocks">
+                                <div class="block blocks gap-1">
+
+                                    <span>Pole:</span>
+                                    <span>Value</span>
+                                </div>
+                                <div class="block blocks gap-1">
+
+                                    <span>Region:</span>
+                                    <span>Value</span>
+                                </div>
+                                <div class="block blocks gap-1">
+
+                                    <span>Standard:</span>
+                                    <span>Value</span>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="../../../assets/try.svg" alt="not" style="width: 100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

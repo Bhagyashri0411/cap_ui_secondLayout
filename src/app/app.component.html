@@ -1,0 +1,29 @@
+<div class="top-header">
+    <app-header></app-header>
+</div>
+
+<div class="col for-transition router-outlet-col">
+    <div>
+        <div><router-outlet></router-outlet></div>
+    </div>
+    <!-- <ng-container *ngIf="IsshowPage; else selectInfo">
+    </ng-container>
+    <ng-template #selectInfo>
+        <div class="d-flex align-items-center justify-content-center" style="height: calc(100vh - 100px);">
+            <h6>Please Select information</h6>
+        </div>
+    </ng-template> -->
+    
+
+    
+</div>
+
+<!-- <app-dashbaord-fifth/> -->
+
+
+<!-- <p-messages></p-messages> -->
+<p-toast></p-toast>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="line-spin-clockwise-fade"
+    [fullScreen]="true">
+    <p style="color: white">Loading ...</p>
+</ngx-spinner>

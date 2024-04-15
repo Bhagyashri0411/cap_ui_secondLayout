@@ -1,0 +1,147 @@
+<!-- <div class="Mainheading mb-1">
+    <h6>cyber engagement planning</h6>
+</div> -->
+
+<div class="container-fluid mt-5">
+    <div class="row px-1">
+        <!-- Left column -->
+        <div class="col-md-2">
+            <!-- First card -->
+            <div class="card mb-1">
+                <app-categories-list />
+            </div>
+            <!-- Second card -->
+            <div class="card mb-1" style="height: 18.8rem;">
+                <div class="Mainheading">
+                    <h6>cyber development status</h6>
+                </div>
+                <app-common-table-structure [tableData]="tableDataOfCyberDevelopementStatus"
+                    [tableColumns]="tableColumnsOfCyberDevelopementStatus" [noOfRows]="9"></app-common-table-structure>
+            </div>
+        </div>
+
+        <!-- Middle column -->
+        <div class="col-md-3">
+            <!-- Third card -->
+            <div class="card mb-1">
+                <div class="Mainheading">
+                    <h6>nist csf 2.0 mapping</h6>
+                </div>
+                <app-cyber-chart></app-cyber-chart>
+            </div>
+            <!-- Fourth card -->
+            <div class="card mb-1" style="height:11.8rem;">
+                <div class="Mainheading">
+                    <h6>lost/abandoned opportunities</h6>
+                </div>
+                <app-common-table-structure [tableData]="tableDataOfAbandoned" [tableColumns]="tableColumnsOfAbandoned"
+                    [noOfRows]="5"></app-common-table-structure>
+            </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="col-md-7 h-100">
+            <!-- Fifth card -->
+            <div class="card mb-1">
+                <div class="Mainheading">
+                    <h6>OT CYBERSECURITY MATURITY JOURNEY</h6>
+                </div>
+                <div class="postion-relative">
+                    <div class="blockLine">
+
+                        <button class="btnStyle" (click)="handleResize()">
+                            <span class="pi pi-window-maximize"></span>
+                            Full screen
+                        </button>
+                    </div>
+                    <img src="../../../assets/drawing_15apr.svg" alt="not" style="width: 100%;" />
+                </div>
+            </div>
+
+
+            <div class="modalBox" *ngIf="isExpand">
+                <div class="card">
+                    <div class="Mainheading">
+                        <h6>OT CYBERSECURITY MATURITY JOURNEY</h6>
+                    </div>
+                    <div class="postion-relative">
+                        <div class="blockLine">
+
+                            <button class="btnStyle" (click)="handleResize()">
+                                <span class="pi pi-window-maximize"></span>
+                                Small screen
+                            </button>
+
+                            <div class="blocks">
+                                <div class="block blocks gap-1">
+
+                                    <span>Pole:</span>
+                                    <span>Value</span>
+                                </div>
+                                <div class="block blocks gap-1">
+
+                                    <span>Region:</span>
+                                    <span>Value</span>
+                                </div>
+                                <div class="block blocks gap-1">
+
+                                    <span>Standard:</span>
+                                    <span>Value</span>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="../../../assets/try.svg" alt="not" style="width: 100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-1">
+        <!-- Left column -->
+        <div class="col-md-2">
+            <!-- Sixth card -->
+            <div class="card mb-1">
+                <app-common-table-structure [tableData]="tableDataOfSuggestions"
+                    [tableColumns]="tableColumnsOfSuggestions" [noOfRows]="3"></app-common-table-structure>
+            </div>
+            <!-- Seventh card -->
+            <div class="card" style="height: 6rem;">
+                <app-common-table-structure [tableData]="tableDataOfDetects" [tableColumns]="tableColumnsOfDetects"
+                    [noOfRows]="2"></app-common-table-structure>
+            </div>
+        </div>
+
+        <!-- Middle column -->
+        <div class="col-md-3">
+            <!-- Eighth card -->
+            <div class="card" style="height: 13.1rem;">
+                <div class="Mainheading">
+                    <h6>available cyber on plan</h6>
+                </div>
+                <app-common-table-structure [tableData]="tableDataOfCyberOnPlan"
+                    [tableColumns]="tableColumnsOfCyberOnPlan" [noOfRows]="6"></app-common-table-structure>
+            </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="col-md-7">
+            <!-- Ninth card -->
+            <div class="card" style="height: 13.1rem;">
+                <div class="Mainheading">
+                    <h6>site adjustment</h6>
+                </div>
+                <div class="tableLayout">
+                    <div *ngFor="let item of tableDataOfSiteAdustment" class="w-100">
+                        <div class="MainheadingTable">
+                            <h6>{{item.maturityLevel}}</h6>
+                        </div>
+                        <app-common-table-structure [tableData]="item.tblCapSiteSecurityMaturityMasterSubs"
+                            [tableColumns]="tableColumnsOfSiteAdustment" [noOfRows]="6"></app-common-table-structure>
+                    </div>
+                </div>
+                <!-- <app-site-cybertable /> -->
+            </div>
+        </div>
+    </div>
+</div>
