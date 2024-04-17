@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import {
   ApexAxisChartSeries,
@@ -18,6 +18,10 @@ import {
   styleUrls: ['./cyber-chart.component.scss']
 })
 export class CyberChartComponent {
+
+  @Input() heightOfGraph: any;
+  
+  
   public chartOptions: Partial<{
     series: ApexAxisChartSeries;
     chart: ApexChart;
@@ -28,25 +32,26 @@ export class CyberChartComponent {
     xaxis: ApexXAxis;
     legend:ApexLegend;
   }>;
-
+  
   constructor() {
+  }
+  
+  ngOnInit() {
     this.chartOptions = {
       series: [
         {
           name: "Series Blue",
-          data: [80, 50, 30, 40, 100, 20]
+          // type:'line',
+          data: [1.2, 1.5, 0.3, 0.5, 0.7, 1]
         },
         {
           name: "Series Green",
-          data: [20, 30, 40, 80, 20, 80]
+          // type:"area",
+          data: [0.6, 1.8, 2, 0.2, 0.7, 1]
         },
-        {
-          name: "Series Orange",
-          data: [44, 76, 78, 13, 43, 10]
-        }
       ],
       chart: {
-        height: 200,
+        height: this.heightOfGraph ? this.heightOfGraph : 200,
         type: "radar",
         dropShadow: {
           enabled: false,
@@ -58,7 +63,7 @@ export class CyberChartComponent {
           }
         },
       },
-
+  
       stroke: {
         width: 0
       },
@@ -83,6 +88,6 @@ export class CyberChartComponent {
           }
         },
       }
-    };
+    }; 
   }
 }

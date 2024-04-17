@@ -18,6 +18,16 @@ export class DashboardSectionComponent {
     this.getSiteCyberSecurityData();
   }
   isExpand: boolean = false;
+  showDropdown = false;
+  selectedPursuitType: string = "NIST";
+
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
+  selectItem(item: any) {
+    this.selectedPursuitType = item;
+    this.showDropdown = false;
+  }
 
   tableDataOfCyberDevelopementStatus: any[] = [
     { id: 1, development: '2023', solutionName: "3rd Party", statusCode: 'green' },

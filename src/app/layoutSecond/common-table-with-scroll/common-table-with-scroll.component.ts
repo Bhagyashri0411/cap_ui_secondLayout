@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -10,7 +11,10 @@ export class CommonTableWithScrollComponent {
   @Input() tableColumns: any[];
   @Input() scrollHeight: any;
 
-
-  constructor() { }
+  constructor(private datePipe: DatePipe) { }
+  getYear(year: any) {
+    const myDate = new Date(year);
+    return this.datePipe.transform(myDate, 'yyyy');
+  }
  
 }

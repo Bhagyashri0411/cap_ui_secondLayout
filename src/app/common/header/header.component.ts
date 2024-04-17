@@ -108,7 +108,7 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/dashboard1']);
         break;
       case 'page3':
-        this.router.navigate(['/option3']);
+        this.router.navigate(['/dashboard2']);
         break;
         case 'page4':
         this.router.navigate(['/option4']);
