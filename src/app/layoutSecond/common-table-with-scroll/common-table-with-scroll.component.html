@@ -10,7 +10,12 @@
     <ng-template pTemplate="body" let-rowData>
       <tr>
         <td *ngFor="let col of tableColumns" [ngClass]="rowData[col.className]">
-          {{ rowData[col.field] }}
+          <ng-container *ngIf="col.header === 'Year'; else otherData">
+            {{ getYear(rowData[col.field])}}
+          </ng-container>
+          <ng-template #otherData>
+            {{ rowData[col.field] }}
+          </ng-template>
         </td>
       </tr>
     </ng-template>

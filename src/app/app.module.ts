@@ -36,6 +36,8 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { DashboardSectionComponent } from './layoutSecond/dashboard-section/dashboard-section.component';
 import { HeaderMenuComponent } from './common/header-menu/header-menu.component';
 import { CommonTableWithScrollComponent } from './layoutSecond/common-table-with-scroll/common-table-with-scroll.component';
+import { DashboardSectionThirdComponent } from './layoutThird/dashboard-section-third/dashboard-section-third.component';
+import { SiteAdjustmentTableComponent } from './site-adjustment-table/site-adjustment-table.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { CommonTableWithScrollComponent } from './layoutSecond/common-table-with
     HeaderComponent,
     DashboardSectionComponent,
     HeaderMenuComponent,
-    CommonTableWithScrollComponent
+    CommonTableWithScrollComponent,
+    DashboardSectionThirdComponent,
+    SiteAdjustmentTableComponent
   ],
   imports: [
     NgxLoadingModule.forRoot({

@@ -56,8 +56,9 @@ a {
 
   .card {
     max-width: 80rem;
+    height: 600px;
     margin: auto;
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 
 }
@@ -190,11 +191,11 @@ a {
 
       td {
         color: #201E1E;
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         font-weight: 500;
         padding: 0.2rem;
         border: 1px solid #e6e2e8;
-        text-wrap: nowrap;
+        // text-wrap: nowrap;
 
         // &.red {
         //   background-color: rgba(239, 68, 68, 0.6);
@@ -240,44 +241,6 @@ a {
 
           // border-left: 3px solid;
 
-        }
-
-
-        &.bg-red {
-          background-color: #ef4444;
-          color: #fff;
-        }
-
-        &.bg-green {
-          background-color: #198754;
-          color: #fff;
-        }
-
-        &.bg-gray {
-          background-color: #4b5563;
-          color: #fff;
-
-        }
-
-        &.bg-yellow {
-          background-color: #eab308;
-          color: #fff;
-        }
-
-        &.bg-purple {
-          background-color: #7b12aa;
-          color: #fff;
-        }
-
-
-        &.bg-orange {
-          background-color: #ea4808;
-          color: #fff;
-        }
-
-        &.bg-blue {
-          background-color: #1708ea;
-          color: #fff;
         }
       }
 
@@ -722,5 +685,7 @@ a {
   font-size: 0.8rem;
   font-weight: 600;
 }
-
+.apexcharts-yaxis{
+  display: none;
+}
 /*# sourceMappingURL=bootstrap.min.css.map */

@@ -1,0 +1,41 @@
+.lastRow {
+    border-top: 1px solid #d9d9d9;
+
+    .blockin {
+        margin-top: 0.2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.2rem;
+        display: flex;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        justify-content: space-between;
+        align-items: center;
+
+        &.red {
+            background-color: #ef4444;
+        }
+
+        &.green {
+            background-color: #198754;
+        }
+
+        &.gray {
+            background-color: #4b5563;
+        }
+
+        &.yellow {
+            background-color: #eab308;
+        }
+
+
+        .indicatorName {
+            h6 {
+                margin: 0;
+                font-size: 0.65rem;
+                font-weight: 600;
+
+            }
+        }
+    }
+}

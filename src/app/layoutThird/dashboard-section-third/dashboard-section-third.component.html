@@ -10,31 +10,28 @@
                 </div>
                 <app-common-table-with-scroll [tableData]="tableDataOfCyberDevelopementStatus"
                     [tableColumns]="tableColumnsOfCyberDevelopementStatus"
-                    [scrollHeight]="250"></app-common-table-with-scroll>
+                    [scrollHeight]=""></app-common-table-with-scroll>
             </div>
 
 
             <!-- Sixth card -->
             <div class="card mb-1">
                 <app-common-table-with-scroll [tableData]="tableDataOfSuggestions"
-                    [tableColumns]="tableColumnsOfSuggestions" [scrollHeight]="100"></app-common-table-with-scroll>
+                    [tableColumns]="tableColumnsOfSuggestions" [scrollHeight]="70"></app-common-table-with-scroll>
             </div>
             <!-- Seventh card -->
             <div class="card mb-1">
                 <app-common-table-with-scroll [tableData]="tableDataOfDetects" [tableColumns]="tableColumnsOfDetects"
-                    [scrollHeight]="100"></app-common-table-with-scroll>
+                    [scrollHeight]=""></app-common-table-with-scroll>
             </div>
 
-            <div class="card">
-                <app-common-table-with-scroll [tableData]="tableDataOfCategories"
-                    [tableColumns]="tableColumnsOfCategories" [scrollHeight]=""></app-common-table-with-scroll>
-            </div>
+
         </div>
 
         <!-- Middle column -->
         <div class="col-md-3">
             <!-- Fourth card -->
-            <div class="card mb-1">
+            <div class="card mb-1" style="height: 8.05rem;">
                 <div class="Mainheading">
                     <h6>lost/abandoned opportunities</h6>
                 </div>
@@ -43,18 +40,35 @@
             </div>
             <div class="card mb-1">
                 <div class="Mainheading">
-                    <h6>available cyber on plan</h6>
+                    <h6>Pipeline Solutions</h6>
                 </div>
                 <app-common-table-with-scroll [tableData]="tableDataOfCyberOnPlan"
-                    [tableColumns]="tableColumnsOfCyberOnPlan" [scrollHeight]="180"></app-common-table-with-scroll>
+                    [tableColumns]="tableColumnsOfCyberOnPlan" [scrollHeight]=""></app-common-table-with-scroll>
             </div>
             <!-- Third card -->
             <div class="card">
                 <div class="Mainheading">
+                    <button class="btnStyle text-white p-1" (click)="handleOpenChart()">Open Chart</button>
+                </div>
+                <app-common-table-with-scroll [tableData]="tableDataOfCategories"
+                    [tableColumns]="tableColumnsOfCategories" [scrollHeight]=""></app-common-table-with-scroll>
+            </div>
+        </div>
+
+        <div class="modalBox" *ngIf="isExpandChart">
+
+
+            <div class="card">
+                <div class="Mainheading">
                     <h6>nist csf 2.0 mapping</h6>
                 </div>
-                <app-cyber-chart></app-cyber-chart>
+                <button class="btnStyle" (click)="handleOpenChart()">
+                    <span class="pi pi-window-maximize"></span>
+                    Small screen
+                </button>
+                <app-cyber-chart [heightOfGraph]="500"></app-cyber-chart>
             </div>
+
         </div>
 
         <!-- Right column -->
@@ -70,21 +84,23 @@
                         <div class="info p-1">
                             <span>Pursuit Standard</span>
                             <div class="data-table-outer">
-                              <div class="search-container" [ngClass]="{ 'open': showDropdown }">
-                                <div class="p-inputgroup">
-                                  <input pInputText type="text" class="p-inputtext" placeholder="Search Pursuit Standard"
-                                    [value]="selectedPursuitType" (click)="toggleDropdown()" />
-                                  <span class="p-inputgroup-addon addon-icon">
-                                    <span class="pi pi-search addon-search"></span>
-                                  </span>
-                                  <ul class="dropdown-list">
-                                    <li (click)="selectItem('NIST')">NIST</li>
-                                    <li (click)="selectItem('ISO27001')">ISO27001</li>
-                                  </ul>
+                                <div class="search-container" [ngClass]="{ 'open': showDropdown }">
+                                    <div class="p-inputgroup">
+                                        <input pInputText type="text" class="p-inputtext"
+                                            placeholder="Search Pursuit Standard" [value]="selectedPursuitType"
+                                            (click)="toggleDropdown()" />
+                                        <span class="p-inputgroup-addon addon-icon">
+                                            <span class="pi pi-search addon-search"></span>
+                                        </span>
+                                        <ul class="dropdown-list">
+                                            <li (click)="selectItem('NIST')">NIST</li>
+                                            <li (click)="selectItem('ISO27001')">ISO27001</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
+                        </div>
+
                         <button class="btnStyle" (click)="handleResize()">
                             <span class="pi pi-window-maximize"></span>
                             Full screen
@@ -119,7 +135,8 @@
                         <div class="MainheadingTable">
                             <h6>{{item.maturityLevel}}</h6>
                         </div>
-                        <app-site-adjustment-table [data]="tableDataOfSiteAdustment" [tableData]="item.tblCapSiteSecurityMaturityMasterSubs"
+                        <app-site-adjustment-table [data]="tableDataOfSiteAdustment"
+                            [tableData]="item.tblCapSiteSecurityMaturityMasterSubs"
                             [tableColumns]="tableColumnsOfSiteAdustment"
                             [scrollHeight]="225"></app-site-adjustment-table>
                     </div>
@@ -165,7 +182,7 @@
                     </div>
                     <div class="lastRow container-fluid ">
                         <div class="row">
-                            <div class="col-md-4 py-1" *ngFor="let indicator of indicators">
+                            <div class="col-md-4 py-2" *ngFor="let indicator of indicators">
                                 <div class="blockin" [ngClass]="indicator.class">
                                     <div class="indicatorName">
                                         <h6>{{ indicator.name }}</h6>
